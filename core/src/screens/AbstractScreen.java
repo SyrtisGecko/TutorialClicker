@@ -4,7 +4,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.g2d.Gdx2DPixmap;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
@@ -28,7 +27,8 @@ public abstract class AbstractScreen implements Screen {
         createCamera();
         stage = new Stage(new StretchViewport(TutorialClickerGame.WIDTH, TutorialClickerGame.HEIGHT, camera));
         spriteBatch = new SpriteBatch();
-        Gdx.input.setInputProcessor(stage); 
+        Gdx.input.setInputProcessor(stage);
+        // DO some changes
     }
 
     private void createCamera() {
