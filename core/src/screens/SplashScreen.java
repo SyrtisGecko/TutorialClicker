@@ -1,6 +1,7 @@
 package screens;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.utils.Timer;
 import com.mygdx.game.tut.TutorialClickerGame;
 import com.sun.org.apache.xml.internal.security.Init;
 
@@ -11,9 +12,17 @@ public class SplashScreen extends AbstractScreen {
 
     private Texture splashImg;
 
-    public SplashScreen(TutorialClickerGame game) {
+    public SplashScreen(final TutorialClickerGame game) {
         super(game);
         init();
+
+        Timer.schedule(new Timer.Task() {
+            @Override
+            public void run() {
+                System.out.println("Poczekajmy 1 sekunde.");
+                game.setScreen(new GameplayScreen(game));
+            }
+        }, 1);
     }
 
     private void init() {
