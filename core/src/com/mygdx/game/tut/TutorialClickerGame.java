@@ -43,6 +43,10 @@ public class TutorialClickerGame extends Game {
 
 	public void addPoint() {
 		points++;
+		updateSavedScore();
+	}
+
+	private void updateSavedScore() {
 		prefs.putInteger(GAME_SCORE, points);
 		prefs.flush();
 	}
@@ -61,5 +65,10 @@ public class TutorialClickerGame extends Game {
 
 	public int getPoints() {
 		return points;
+	}
+
+	public void resetGameScore() {
+		points = 0;
+		updateSavedScore();
 	}
 }
