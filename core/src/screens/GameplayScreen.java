@@ -37,6 +37,7 @@ public class GameplayScreen extends AbstractScreen {
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 System.out.println("Klik na ikone Playera");
                 player.reactOnClick();
+                game.addPoint();
                 return super.touchDown(event, x, y, pointer, button);
             }
         });
@@ -51,6 +52,8 @@ public class GameplayScreen extends AbstractScreen {
     public void render(float delta) {
         super.render(delta);
         update();
+
+        System.out.println("Punkty: " + game.getPoints());
 
         spriteBatch.begin();
         stage.draw();
