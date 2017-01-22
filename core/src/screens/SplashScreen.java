@@ -28,7 +28,7 @@ public class SplashScreen extends AbstractScreen {
     @Override
     protected void init() {
         // TODO implement better assets loading
-        splashImg = new Texture("badlogic.jpg");
+        splashImg = new Texture("Flourishy-Floral-Design.png");
     }
 
     @Override
@@ -36,7 +36,7 @@ public class SplashScreen extends AbstractScreen {
         super.render(delta);
 
         spriteBatch.begin();
-        spriteBatch.draw(splashImg, 0 , 0);
+        spriteBatch.draw(splashImg, 90 , 250);
         spriteBatch.end();
     }
 
