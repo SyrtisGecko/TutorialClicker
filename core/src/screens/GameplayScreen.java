@@ -8,13 +8,14 @@ import com.mygdx.game.tut.entities.Player;
 import ui.IClickCallback;
 import ui.PlayerButton;
 import ui.ResetScoreButton;
+import ui.ScoreLabel;
 
 public class GameplayScreen extends AbstractScreen {
 
     private Player player;
     private ResetScoreButton resetScoreButton;
     private PlayerButton playerButton;
-    private Label scoreLabel;
+    private ScoreLabel scoreLabel;
 
     public GameplayScreen(TutorialClickerGame game) {
         super(game);
@@ -41,11 +42,7 @@ public class GameplayScreen extends AbstractScreen {
     }
 
     private void initScoreLabel() {
-        LabelStyle labelStyle = new LabelStyle();
-        labelStyle.font = new BitmapFont();
-        scoreLabel = new Label("Test Test", labelStyle);
-        scoreLabel.setX(20);
-        scoreLabel.setY(650);
+        scoreLabel = new ScoreLabel();
         stage.addActor(scoreLabel);
     }
 
