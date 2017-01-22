@@ -1,5 +1,6 @@
 package screens;
 
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
@@ -12,6 +13,7 @@ import ui.ScoreLabel;
 
 public class GameplayScreen extends AbstractScreen {
 
+    private Texture bgTexture;
     private Player player;
     private ResetScoreButton resetScoreButton;
     private PlayerButton playerButton;
@@ -23,6 +25,7 @@ public class GameplayScreen extends AbstractScreen {
 
     @Override
     protected void init() {
+        bgTexture = new Texture("desert-background.png");
         initPlayer();
         initPlayerButton();
         initResetScoreButton();
@@ -70,6 +73,10 @@ public class GameplayScreen extends AbstractScreen {
         update();
 
         System.out.println("Punkty: " + game.getPoints());
+
+        spriteBatch.begin();
+        spriteBatch.draw(bgTexture, 0, 0);
+        spriteBatch.end();
 
         spriteBatch.begin();
         stage.draw();

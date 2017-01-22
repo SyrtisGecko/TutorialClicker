@@ -15,7 +15,7 @@ public class ScoreLabel extends Label {
 
     private void init() {
         this.setX(20);
-        this.setY(650);
+        this.setY(630);
     }
 
     private static LabelStyle prepareLabelStyle() {
