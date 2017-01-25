@@ -3,17 +3,16 @@ package service;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Preferences;
 
-/**
- * Created by Przemek on 2017-01-25.
- */
 public class ScoreService {
 
     public final static String GAME_PREFS = "com.mygdx.game.tut.prefs";
     public final static String GAME_SCORE = "com.mygdx.game.tut.prefs.score";
+    public final static String GAME_PASSIVE_INCOM = "com.mygdx.game.tut.prefs.passiveincome";
 
     private Preferences prefs;
 
     private int points;
+    private int passiveIncome;
     
     public ScoreService() {
         init();
@@ -22,39 +21,50 @@ public class ScoreService {
     private void init() {
         prefs = Gdx.app.getPreferences(GAME_PREFS);
         loadScore();
-
+        loadPassiveIncome();
     }
 
     private void loadScore() {
         points = prefs.getInteger(GAME_SCORE);
     }
 
+    private void loadPassiveIncome() {
+        passiveIncome = prefs.getInteger(GAME_PASSIVE_INCOM);
+    }
+
     public void addPoints(int i) {
         points += i;
-        updateSavedScore();
+        updateSavedScoreAndPassiveIncome();
     }
 
     public void addPoint() {
         points++;
-        updateSavedScore();
+        updateSavedScoreAndPassiveIncome();
     }
 
     public void resetGameScore() {
         points = 0;
-        updateSavedScore();
+        passiveIncome = 0;
+        updateSavedScoreAndPassiveIncome();
     }
 
-    private void updateSavedScore() {
+    private void updateSavedScoreAndPassiveIncome() {
         prefs.putInteger(GAME_SCORE, points);
+        prefs.putInteger(GAME_PASSIVE_INCOM, passiveIncome);
         prefs.flush();
     }
 
     public void addPassiveIncome() {
-        // TODO implement
-        System.out.println("Passive income click");
+        passiveIncome++;
+        updateSavedScoreAndPassiveIncome();
+        System.out.println("Passive income:" + passiveIncome);
     }
 
     public int getPoints() {
         return points;
+    }
+
+    public int getPassiveIncome() {
+        return passiveIncome;
     }
 }
