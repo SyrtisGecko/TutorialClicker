@@ -31,6 +31,11 @@ public class GameplayScreen extends AbstractScreen {
         initResetScoreButton();
         initScoreLabel();
         initFlyingObjectController();
+        startTheMusic();
+    }
+
+    private void startTheMusic() {
+        game.getSoundService().startPlayingMusic(true);
     }
 
     private void initFlyingObjectController() {
