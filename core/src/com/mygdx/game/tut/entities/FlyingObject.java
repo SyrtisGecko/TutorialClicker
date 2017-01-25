@@ -9,9 +9,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.mygdx.game.tut.TutorialClickerGame;
 
-/**
- * Created by Przemek on 2017-01-23.
- */
+
 public class FlyingObject extends Image {
 
     public enum FlyingObjectType {
@@ -65,9 +63,9 @@ public class FlyingObject extends Image {
 
     private void reactOnClick() {
         if(FlyingObjectType.MONEY.equals(type)) {
-            game.addPoints(50);
+            game.getScoreService().addPoints(50);
         } else if(FlyingObjectType.PASSIVE.equals(type)) {
-            game.addPassiveIncome();
+            game.getScoreService().addPassiveIncome();
         }
 
 
