@@ -2,12 +2,14 @@ package service;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Preferences;
+import com.badlogic.gdx.utils.TimeUtils;
 
 public class ScoreService {
 
     public final static String GAME_PREFS = "com.mygdx.game.tut.prefs";
     public final static String GAME_SCORE = "com.mygdx.game.tut.prefs.score";
     public final static String GAME_PASSIVE_INCOM = "com.mygdx.game.tut.prefs.passiveincome";
+    public final static String GAME_SAVED_TIMESTAMP = "com.mygdx.game.tut.prefs.savedtimestamp";
 
     private Preferences prefs;
 
@@ -66,5 +68,14 @@ public class ScoreService {
 
     public int getPassiveIncome() {
         return passiveIncome;
+    }
+
+    public long getSavedTimestamp() {
+        return prefs.getLong(GAME_SAVED_TIMESTAMP);
+    }
+
+    public void saveCurrentTimestamp() {
+        prefs.putLong(GAME_SAVED_TIMESTAMP, TimeUtils.millis());
+        prefs.flush();
     }
 }

@@ -42,11 +42,16 @@ public class GameplayScreen extends AbstractScreen {
         super.render(delta);
         update();
 
-        System.out.println("Punkty: " + game.getScoreService().getPoints());
-
         spriteBatch.begin();
         stage.draw();
         spriteBatch.end();
+    }
+
+    @Override
+    public void pause() {
+        super.pause();
+        game.getScoreService().saveCurrentTimestamp();
+        // TODO make flush() of ScoreService always on pause()
     }
 
     private void update() {
