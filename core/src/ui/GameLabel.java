@@ -6,9 +6,9 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 /**
  * Created by Przemek on 2017-01-22.
  */
-public class ScoreLabel extends Label {
+public class GameLabel extends Label {
 
-    public ScoreLabel() {
+    public GameLabel() {
         super("", prepareLabelStyle());
         init();
     }
