@@ -2,6 +2,7 @@ package ui;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.actions.AddAction;
 import com.badlogic.gdx.scenes.scene2d.actions.SequenceAction;
@@ -38,9 +39,11 @@ public class BasicDialog extends Image {
 
     }
 
-    public void initContent(String text) {
+    public void showDialog(Stage stage, String text) {
+        stage.addActor(this);
         label.setText(text);
         this.getStage().addActor(label);
+
     }
 
     private void fadeOutDialog() {

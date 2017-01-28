@@ -1,6 +1,8 @@
 package com.mygdx.game.tut.controllers;
 
 import com.badlogic.gdx.math.MathUtils;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Stack;
 import com.badlogic.gdx.utils.Timer;
 import com.mygdx.game.tut.TutorialClickerGame;
 
@@ -10,8 +12,11 @@ public class RandomEventController {
 
     private TutorialClickerGame game;
 
-    public RandomEventController(TutorialClickerGame game) {
+    private Stage stage;
+
+    public RandomEventController(TutorialClickerGame game, Stage stage) {
         this.game = game;
+        this.stage = stage;
         init();
     }
 
