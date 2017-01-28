@@ -5,6 +5,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Stack;
 import com.badlogic.gdx.utils.Timer;
 import com.mygdx.game.tut.TutorialClickerGame;
+import ui.BasicDialog;
 
 public class RandomEventController {
 
@@ -49,18 +50,26 @@ public class RandomEventController {
         }
     }
 
+    private void triggerDialog(String text) {
+        BasicDialog basicDialog = new BasicDialog();
+        basicDialog.showDialog(stage, text);
+    }
+
     private void gainPassiveIncome() {
         game.getScoreService().addPassiveIncome();
         System.out.println("Gained passive income.");
+        triggerDialog("You gained passive income");
     }
 
     private void looseMoneyEvent() {
         game.getScoreService().addPoints(-123);
         System.out.println("Lost money.");
+        triggerDialog("You've just lost 123");
     }
 
     private void gainMoneyEvent() {
         game.getScoreService().addPoints(123);
         System.out.println("Gained money.");
+        triggerDialog("You gained 123");
     }
 }
