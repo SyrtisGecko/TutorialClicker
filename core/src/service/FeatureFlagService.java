@@ -7,7 +7,7 @@ public class FeatureFlagService {
 
     private boolean shop = false;
 
-    public void makeRequest() {
+    public void makeFeatureFlagService() {
         // TODO
     }
 
