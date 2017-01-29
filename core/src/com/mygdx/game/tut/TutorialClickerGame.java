@@ -2,6 +2,7 @@ package com.mygdx.game.tut;
 
 import com.badlogic.gdx.Game;
 import screens.SplashScreen;
+import service.FeatureFlagService;
 import service.ScoreService;
 import service.SoundService;
 
@@ -14,6 +15,7 @@ public class TutorialClickerGame extends Game {
 
 	private SoundService soundService;
 	private ScoreService scoreService;
+	private FeatureFlagService featureFlagService;
 
 	private boolean paused;
 
@@ -27,6 +29,11 @@ public class TutorialClickerGame extends Game {
 	private void init() {
 		initSoundService();
 		initScoreService();
+		initFeatureFlagService();
+	}
+
+	private void initFeatureFlagService() {
+		featureFlagService = new FeatureFlagService();
 	}
 
 	private void initScoreService() {
@@ -57,5 +64,9 @@ public class TutorialClickerGame extends Game {
 
 	public ScoreService getScoreService() {
 		return scoreService;
+	}
+
+	public FeatureFlagService getFeatureFlagService() {
+		return featureFlagService;
 	}
 }
