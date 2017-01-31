@@ -3,7 +3,6 @@ package screens;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.Timer;
 import com.mygdx.game.tut.TutorialClickerGame;
-import com.sun.org.apache.xml.internal.security.Init;
 
 /**
  * Created by Przemek on 2017-01-19.
